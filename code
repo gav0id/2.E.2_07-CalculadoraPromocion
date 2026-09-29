@@ -1,6 +1,33 @@
+public class CalculadoraPromocion {
+    private double descuentoBase;
 
+    public CalculadoraPromocion(double descuentoBase) {
+        this.descuentoBase = descuentoBase;
+    }
 
+    public double calcularPrecioFinal(double precioBase){
+        return precioBase - (precioBase * (this.descuentoBase / 100));
+    }
+    public double calcularPrecioFinal(double precioBase, double porcentajeEspecial){
+        return precioBase - (precioBase * porcentajeEspecial / 100);
+    }
+    public double calcularPrecioFinal(double precioBase, int cuponFijo){
+        return precioBase - cuponFijo;
+    }
+}
 
 // ----------------------------------------------------------------------------------------------------------------------------------------------------------------
 
+public class Main {
+    public static void main(String[] args){
 
+        CalculadoraPromocion c1 = new CalculadoraPromocion(15.0);
+
+        System.out.println(c1.calcularPrecioFinal(1000.0));
+
+        System.out.println(c1.calcularPrecioFinal(1000.0, 67.0));
+
+        System.out.println(c1.calcularPrecioFinal(5000.0, 250));
+
+    }
+}
